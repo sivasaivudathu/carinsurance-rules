@@ -1,5 +1,5 @@
 import com.project.droolsdemo.models.CarInsuranceDetails;
-import java.lang.*;
+import java.util.*;
 import java.math.BigDecimal;
 import com.project.droolsdemo.models.Insurer;
 
@@ -27,10 +27,10 @@ rule "TATA-Criteria Based on Claims Number - 1"
 		$list: ArrayList()
 		$insurer:Insurer(name == "Tata") from $list
 	then
-		System.out.println("RULE 2")
-	    $amt=$amt*0.47
-	    $insurer.setAmount($amt)
-	    $insurer.setPercentage("37%")
+		System.out.println("RULE 2");
+	    $amt=$amt*0.47;
+	    $insurer.setAmount($amt);
+	    $insurer.setPercentage("37%");
 end
 	
 rule "TATA-Criteria Based on Claims Number - 2"
@@ -39,10 +39,10 @@ rule "TATA-Criteria Based on Claims Number - 2"
 		$list: ArrayList()
 		$insurer:Insurer(name == "Tata") from $list
 	then
-	System.out.println("RULE 3")
-	    $amt=$amt*0.40
-	    $insurer.setAmount($amt)
-	    $insurer.setPercentage("40%")
+	System.out.println("RULE 3");
+	    $amt=$amt*0.40;
+	    $insurer.setAmount($amt);
+	    $insurer.setPercentage("40%");
 end   
 
 rule "TATA-Criteria Based on Claims and Year - 1"
@@ -51,10 +51,10 @@ rule "TATA-Criteria Based on Claims and Year - 1"
 		$list: ArrayList()
 		$insurer:Insurer(name == "Tata") from $list
 	then
-	System.out.println("RULE 4")
-	    $amt=$amt*0.35
-	    $insurer.setAmount($amt)
-	    $insurer.setPercentage("35%")
+	System.out.println("RULE 4");
+	    $amt=$amt*0.35;
+	    $insurer.setAmount($amt);
+	    $insurer.setPercentage("35%");
 end 
 
 rule "TATA-Criteria Based on Claims and Year - 2"
@@ -65,7 +65,7 @@ rule "TATA-Criteria Based on Claims and Year - 2"
 		$insurer:Insurer(name == "Tata") from $list
 	then
 		System.out.println("RULE 5");
-		$list.remove($insurer)
+		$list.remove($insurer);
 end 
 	  
 
@@ -76,9 +76,9 @@ rule "TATA-Criteria Based on Claims and Gender - 1"
 		$list: ArrayList()
 		$insurer:Insurer(name == "Tata") from $list
 	then
-		System.out.println("RULE 6")
-	    $amt=$amt*0.30
-	    $insurer.setAmount($amt)
-	    $insurer.setPercentage("30%")
+		System.out.println("RULE 6");
+	    $amt=$amt*0.30;
+	    $insurer.setAmount($amt);
+	    $insurer.setPercentage("30%");
 end 
 	 

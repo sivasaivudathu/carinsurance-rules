@@ -1,9 +1,8 @@
 import com.project.droolsdemo.models.CarInsuranceDetails;
-import java.lang.*;
+import java.util.*;
 import java.math.BigDecimal;
 import com.project.droolsdemo.models.Insurer;
 
-dialect "mvel" 
 
 ruleflow-group "Tata"
 
@@ -27,10 +26,10 @@ rule "National-Criteria Based on Claims Number - 1"
 		$list: ArrayList()
 		$insurer:Insurer(name == "National") from $list
 	then
-		System.out.println("RULE 2")
-	    $amt=$amt*0.25
-	    $insurer.setAmount($amt)
-	    $insurer.setPercentage("25%")
+		System.out.println("RULE 2");
+	    $amt=$amt*0.25;
+	    $insurer.setAmount($amt);
+	    $insurer.setPercentage("25%");
 end
 	
 rule "National-Criteria Based on Claims Number - 2"
@@ -39,10 +38,10 @@ rule "National-Criteria Based on Claims Number - 2"
 		$list: ArrayList()
 		$insurer:Insurer(name == "National") from $list
 	then
-	System.out.println("RULE 3")
-	    $amt=$amt*0.22
-	    $insurer.setAmount($amt)
-	    $insurer.setPercentage("22%")
+	System.out.println("RULE 3");
+	    $amt=$amt*0.22;
+	    $insurer.setAmount($amt);
+	    $insurer.setPercentage("22%");
 end   
 
 rule "National-Criteria Based on Claims and Year - 1"
@@ -51,10 +50,10 @@ rule "National-Criteria Based on Claims and Year - 1"
 		$list: ArrayList()
 		$insurer:Insurer(name == "National") from $list
 	then
-	System.out.println("RULE 4")
-	    $amt=$amt*0.27
-	    $insurer.setAmount($amt)
-	    $insurer.setPercentage("27%")
+	System.out.println("RULE 4");
+	    $amt=$amt*0.27;
+	    $insurer.setAmount($amt);
+	    $insurer.setPercentage("27%");
 end 
 
 rule "National-Criteria Based on Cityr - 1"
@@ -63,9 +62,9 @@ rule "National-Criteria Based on Cityr - 1"
 		$list: ArrayList()
 		$insurer:Insurer(name == "National") from $list
 	then
-	System.out.println("RULE 5")
-	    $amt=$amt*0.20
-	    $insurer.setAmount($amt)
-	    $insurer.setPercentage("20%")
+	System.out.println("RULE 5");
+	    $amt=$amt*0.20;
+	    $insurer.setAmount($amt);
+	    $insurer.setPercentage("20%");
 end 
 	   

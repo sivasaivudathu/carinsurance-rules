@@ -1,5 +1,5 @@
 import com.project.droolsdemo.models.CarInsuranceDetails;
-import java.lang.*;
+import java.util.*;
 import java.math.BigDecimal;
 import com.project.droolsdemo.models.Insurer;
  
@@ -28,10 +28,10 @@ rule "MaxLife-Criteria Based on Claims Number - 2"
 		$list: ArrayList()
 		$insurer:Insurer(name == "MaxLife") from $list
 	then
-		System.out.println("MaxLife RULE 3")
-	    $amt=$amt*0.10
-	    $insurer.setAmount($amt)
-	    $insurer.setPercentage("10%")
+		System.out.println("MaxLife RULE 3");
+	    $amt=$amt*0.10;
+	    $insurer.setAmount($amt);
+	    $insurer.setPercentage("10%");
 end   
 
 rule "MaxLife-Criteria Based on Claims and Use - 1"
@@ -40,10 +40,10 @@ rule "MaxLife-Criteria Based on Claims and Use - 1"
 		$list: ArrayList()
 		$insurer:Insurer(name == "MaxLife") from $list
 	then
-		System.out.println("MaxLife RULE 4")
-	    $amt=$amt*0.05
-	    $insurer.setAmount($amt)
-	    $insurer.setPercentage("5%")
+		System.out.println("MaxLife RULE 4");
+	    $amt=$amt*0.05;
+	    $insurer.setAmount($amt);
+	    $insurer.setPercentage("5%");
 end 
 
 rule "MaxLife-Criteria Based on City-1"
@@ -52,10 +52,10 @@ rule "MaxLife-Criteria Based on City-1"
 		$list: ArrayList()
 		$insurer:Insurer(name == "MaxLife") from $list
 	then
-		System.out.println("MaxLife RULE 5")
-	    $amt=$amt*0.05
-	    $insurer.setAmount($amt)
-	    $insurer.setPercentage("5%")
+		System.out.println("MaxLife RULE 5");
+	    $amt=$amt*0.05;
+	    $insurer.setAmount($amt);
+	    $insurer.setPercentage("5%");
 end 
 
 

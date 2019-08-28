@@ -1,9 +1,8 @@
 import com.project.droolsdemo.models.CarInsuranceDetails;
-import java.lang.*;
+import java.util.*;
 import java.math.BigDecimal;
 import com.project.droolsdemo.models.Insurer;
 
-dialect "mvel" 
 
 ruleflow-group "Bajaj Allianz"
 
