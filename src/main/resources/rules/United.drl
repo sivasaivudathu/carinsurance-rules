@@ -57,7 +57,7 @@ rule "United-Criteria Based on Claims and Use - 1"
 		System.out.println("United RULE 4");
 	    $amt=$amt*0.10;
 	    $insurer.setAmount($amt);
-	    $insurer.setPercentage("10%");s
+	    $insurer.setPercentage("10%");
 end 
 
 
