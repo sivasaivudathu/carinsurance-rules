@@ -58,7 +58,7 @@ end
 
 rule "FUW_LIBERTY-Criteria Based on Cityr - 1"
 	when
-		$carInfo:CarInsuranceDetails(city == "Delhi", $amt:cost)	
+		$carInfo:CarInsuranceDetails(city == "delhi", $amt:cost)	
 		$list: ArrayList()
 		$insurer:Insurer(name == "FUW_LIBERTY") from $list
 	then

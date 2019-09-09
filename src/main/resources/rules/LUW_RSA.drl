@@ -72,7 +72,7 @@ end
 rule "LUW_RSA-Criteria Based on Claims and Gender - 1"
 
 	when
-		$carInfo:CarInsuranceDetails(claims >= 2 ,gender == "Female", $amt:cost)	
+		$carInfo:CarInsuranceDetails(claims >= 2 ,gender == "female", $amt:cost)	
 		$list: ArrayList()
 		$insurer:Insurer(name == "LUW_RSA") from $list
 	then

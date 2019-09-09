@@ -13,7 +13,7 @@ salience 10
 dialect "java"
 
 	when
-	    $carInfo:CarInsuranceDetails(manufacturedYear >= "2010",profession =="Employed" , $amt:cost)
+	    $carInfo:CarInsuranceDetails(manufacturedYear >= "2010",profession =="employed" , $amt:cost)
 	    $list: ArrayList()
     then
     	System.out.println("FUW_AMTRUST RULE 1");
@@ -48,7 +48,7 @@ end
 
 rule "FUW_HISCOX-Criteria Based on City-1"
 	when
-		$carInfo:CarInsuranceDetails(city == "Bihar", $amt:cost)	
+		$carInfo:CarInsuranceDetails(city == "bihar", $amt:cost)	
 		$list: ArrayList()
 		$insurer:Insurer(name == "FUW_HISCOX") from $list
 	then

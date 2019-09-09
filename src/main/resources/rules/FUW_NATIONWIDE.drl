@@ -17,7 +17,6 @@ dialect "java"
 	    $list: ArrayList()
     then
     	System.out.println("FUW_NATIONWIDE RULE 1");
-    	//$list.add(new Insurer("FUW_NATIONWIDE",$amt));
         modify($list){add(new Insurer("FUW_NATIONWIDE",$amt*0.25,"25%"))};   
 end
 
