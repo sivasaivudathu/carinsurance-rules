@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import com.project.droolsdemo.models.Insurer;
 
 
-ruleflow-group "Bajaj Allianz"
+ruleflow-group "LUW_AIG"
 
-rule "Bharat-Criteria Based on Manufacturing Date"
+rule "FUW_CHUBB-Criteria Based on Manufacturing Date"
 lock-on-active true
 salience 10
 
@@ -16,15 +16,15 @@ dialect "java"
 	    $list: ArrayList()
     then
     	System.out.println("RULE 1");
-    	$list.add(new Insurer("Bharat",$amt*0.3,"30%"));
+    	$list.add(new Insurer("FUW_CHUBB",$amt*0.3,"30%"));
         update($list);
 end
 
-rule "Bharat-Criteria Based on Claims Number - 1"
+rule "FUW_CHUBB-Criteria Based on Claims Number - 1"
 	when
 		$carInfo:CarInsuranceDetails(claims >= 1 && <3 , $amt:cost)	
 		$list: ArrayList()
-		$insurer:Insurer(name == "Bharat") from $list
+		$insurer:Insurer(name == "FUW_CHUBB") from $list
 	then
 		System.out.println("RULE 2");
 	    $amt=$amt*0.25;
@@ -32,11 +32,11 @@ rule "Bharat-Criteria Based on Claims Number - 1"
 	    $insurer.setPercentage("25%");
 end
 	
-rule "Bharat-Criteria Based on Claims Number - 2"
+rule "FUW_CHUBB-Criteria Based on Claims Number - 2"
 	when
 		$carInfo:CarInsuranceDetails(claims >= 3 , $amt:cost)	
 		$list: ArrayList()
-		$insurer:Insurer(name == "Bharat") from $list
+		$insurer:Insurer(name == "FUW_CHUBB") from $list
 	then
 	System.out.println("RULE 3");
 	    $amt=$amt*0.22;
@@ -44,11 +44,11 @@ rule "Bharat-Criteria Based on Claims Number - 2"
 	    $insurer.setPercentage("22%");
 end   
 
-rule "Bharat-Criteria Based on Claims and Year - 1"
+rule "FUW_CHUBB-Criteria Based on Claims and Year - 1"
 	when
 		$carInfo:CarInsuranceDetails(claims >= 3 ,manufacturedYear < "2007", $amt:cost)
 		$list: ArrayList()
-		$insurer:Insurer(name == "Bharat") from $list
+		$insurer:Insurer(name == "FUW_CHUBB") from $list
 	then
 	System.out.println("RULE 4");
 	    $amt=$amt*0.27;
@@ -57,12 +57,12 @@ rule "Bharat-Criteria Based on Claims and Year - 1"
 	    
 end 
 
-rule "Bharat-Criteria Based on Claims and Year - 2"
+rule "FUW_CHUBB-Criteria Based on Claims and Year - 2"
 
 	when
 		$carInfo:CarInsuranceDetails(claims >= 5 ,manufacturedYear < "2000", $amt:cost)	
 		$list: ArrayList()
-		$insurer:Insurer(name == "Bharat") from $list
+		$insurer:Insurer(name == "FUW_CHUBB") from $list
 	then
 		System.out.println("RULE 5");
 		$list.remove($insurer);

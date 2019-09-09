@@ -7,7 +7,7 @@ dialect "mvel"
 
 ruleflow-group "default"
 
-rule "TATA-Criteria Based on Manufacturing Date"
+rule "LUW_RSA-Criteria Based on Manufacturing Date"
 lock-on-active true
 salience 10
 
@@ -17,15 +17,15 @@ dialect "java"
 	    $list: ArrayList()
     then
     	System.out.println("RULE 1");
-    	$list.add(new Insurer("Tata",$amt*0.5,"50%"));
+    	$list.add(new Insurer("LUW_RSA",$amt*0.5,"50%"));
         update($list);
 end
 
-rule "TATA-Criteria Based on Claims Number - 1"
+rule "LUW_RSA-Criteria Based on Claims Number - 1"
 	when
 		$carInfo:CarInsuranceDetails(claims >= 1 && <3 , $amt:cost)	
 		$list: ArrayList()
-		$insurer:Insurer(name == "Tata") from $list
+		$insurer:Insurer(name == "LUW_RSA") from $list
 	then
 		System.out.println("RULE 2");
 	    $amt=$amt*0.47;
@@ -33,11 +33,11 @@ rule "TATA-Criteria Based on Claims Number - 1"
 	    $insurer.setPercentage("37%");
 end
 	
-rule "TATA-Criteria Based on Claims Number - 2"
+rule "LUW_RSA-Criteria Based on Claims Number - 2"
 	when
 		$carInfo:CarInsuranceDetails(claims >= 3 , $amt:cost)	
 		$list: ArrayList()
-		$insurer:Insurer(name == "Tata") from $list
+		$insurer:Insurer(name == "LUW_RSA") from $list
 	then
 	System.out.println("RULE 3");
 	    $amt=$amt*0.40;
@@ -45,11 +45,11 @@ rule "TATA-Criteria Based on Claims Number - 2"
 	    $insurer.setPercentage("40%");
 end   
 
-rule "TATA-Criteria Based on Claims and Year - 1"
+rule "LUW_RSA-Criteria Based on Claims and Year - 1"
 	when
 		$carInfo:CarInsuranceDetails(claims >= 3 ,manufacturedYear < "2007", $amt:cost)	
 		$list: ArrayList()
-		$insurer:Insurer(name == "Tata") from $list
+		$insurer:Insurer(name == "LUW_RSA") from $list
 	then
 	System.out.println("RULE 4");
 	    $amt=$amt*0.35;
@@ -57,24 +57,24 @@ rule "TATA-Criteria Based on Claims and Year - 1"
 	    $insurer.setPercentage("35%");
 end 
 
-rule "TATA-Criteria Based on Claims and Year - 2"
+rule "LUW_RSA-Criteria Based on Claims and Year - 2"
 
 	when
 		$carInfo:CarInsuranceDetails(claims >= 5 ,manufacturedYear < "2000", $amt:cost)	
 		$list: ArrayList()
-		$insurer:Insurer(name == "Tata") from $list
+		$insurer:Insurer(name == "LUW_RSA") from $list
 	then
 		System.out.println("RULE 5");
 		$list.remove($insurer);
 end 
 	  
 
-rule "TATA-Criteria Based on Claims and Gender - 1"
+rule "LUW_RSA-Criteria Based on Claims and Gender - 1"
 
 	when
 		$carInfo:CarInsuranceDetails(claims >= 2 ,gender == "Female", $amt:cost)	
 		$list: ArrayList()
-		$insurer:Insurer(name == "Tata") from $list
+		$insurer:Insurer(name == "LUW_RSA") from $list
 	then
 		System.out.println("RULE 6");
 	    $amt=$amt*0.30;

@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import com.project.droolsdemo.models.Insurer;
  
  
-ruleflow-group "Icici"
+ruleflow-group "LUW_AIG"
   
-rule "United-Criteria Based on Manufacturing Date"
+rule "FUW_NATIONWIDE-Criteria Based on Manufacturing Date"
 
 lock-on-active true
 salience 10
@@ -16,19 +16,19 @@ dialect "java"
 	    $carInfo:CarInsuranceDetails(manufacturedYear >= "2007" , $amt:cost)
 	    $list: ArrayList()
     then
-    	System.out.println("United RULE 1");
-    	//$list.add(new Insurer("Oriental",$amt));
-        modify($list){add(new Insurer("United",$amt*0.25,"25%"))};   
+    	System.out.println("FUW_NATIONWIDE RULE 1");
+    	//$list.add(new Insurer("FUW_NATIONWIDE",$amt));
+        modify($list){add(new Insurer("FUW_NATIONWIDE",$amt*0.25,"25%"))};   
 end
 
-rule "United-Criteria Based on Claims Number - 1"
+rule "FUW_NATIONWIDE-Criteria Based on Claims Number - 1"
 	when
-		$carInfo:CarInsuranceDetails(claims >= 1 && <3 , $amt:cost)
+		$carInfo:CarInsuranceDetails(claims >= 1 && <3 , $amt:cost)	
 		$list: ArrayList()
-		$insurer:Insurer(name == "United") from $list
+		$insurer:Insurer(name == "FUW_NATIONWIDE") from $list
 		
 	then
-		System.out.println("United RULE 2");
+		System.out.println("FUW_NATIONWIDE RULE 2");
 	    $amt=$amt*0.20;
 	   	$insurer.setAmount($amt);
 	   	$insurer.setPercentage("20%");
@@ -36,25 +36,25 @@ rule "United-Criteria Based on Claims Number - 1"
 end
 
 
-rule "United-Criteria Based on Claims Number - 2"
+rule "FUW_NATIONWIDE-Criteria Based on Claims Number - 2"
 	when
 		$carInfo:CarInsuranceDetails(claims >= 3 , $amt:cost)	
 		$list: ArrayList()
-		$insurer:Insurer(name == "United") from $list
+		$insurer:Insurer(name == "FUW_NATIONWIDE") from $list
 	then
-		System.out.println("United RULE 3");
+		System.out.println("FUW_NATIONWIDE RULE 3");
 	    $amt=$amt*0.15;
 	    $insurer.setAmount($amt);
 	    $insurer.setPercentage("15%");
 end   
 
-rule "United-Criteria Based on Claims and Use - 1"
+rule "FUW_NATIONWIDE-BajajAllianz-Criteria Based on Claims and Use - 1"
 	when
 		$carInfo:CarInsuranceDetails(claims >= 3 ,use == "business", $amt:cost)	
 		$list: ArrayList()
-		$insurer:Insurer(name == "United") from $list
+		$insurer:Insurer(name == "FUW_NATIONWIDE") from $list
 	then
-		System.out.println("United RULE 4");
+		System.out.println("FUW_NATIONWIDE RULE 4");
 	    $amt=$amt*0.10;
 	    $insurer.setAmount($amt);
 	    $insurer.setPercentage("10%");
